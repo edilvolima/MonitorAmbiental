@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Enactor xmlns="http://www.contexttoolkit.org/ctk" name="pollutionEnactor">
+
+	<InWidget  href="fire-widget-input.xml" />
+	<OutWidget href="fire-widget-output.xml" />
+	
+	<OutcomeName>message</OutcomeName>
+	
+	
+	<Reference name="fire">
+		<Query name="fire">
+			( AND
+				(DIFFERENT area null)
+				(EQUAL enableNotificatons true)
+				(EQUAL isFire true)
+				
+			)
+		</Query>
+		<Outcome outAttribute="message">"isFire-"+area</Outcome>
+		<ServiceInput service="fireService" function="fireControl">
+			<Attribute name="message" />
+		</ServiceInput>
+	</Reference>
+	
+	<Reference name="nofire">
+		<Query name="nofire">
+			(  AND
+				(DIFFERENT area null)
+				(EQUAL enableNotificatons true)
+				(EQUAL isFire false)
+			)
+		</Query>
+		<Outcome outAttribute="message">"is not Fire-"+area</Outcome>
+		<ServiceInput service="fireService" function="fireControl">
+			<Attribute name="message" />
+		</ServiceInput>
+	</Reference>
+	
+
+</Enactor>

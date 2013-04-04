@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Enactor xmlns="http://www.contexttoolkit.org/ctk" name="temperature-Enactor">
+
+	<InWidget  href="temperature-widget-input.xml" />
+	<OutWidget href="temperature-widget-output.xml" />
+	
+	<OutcomeName>message</OutcomeName>
+	
+	
+	<Reference name="temperature">
+		<Query name="temperature">
+			( AND
+				(DIFFERENT area null)
+				(GREATER temperature -274)
+				(EQUAL enableNotificatons true)	
+			)
+		</Query>
+		<Outcome outAttribute="message">temperature+":"+area</Outcome>
+		<ServiceInput service="temperatureService" function="temperatureControl">
+			<Attribute name="message" />
+		</ServiceInput>
+	</Reference>
+	
+
+</Enactor>

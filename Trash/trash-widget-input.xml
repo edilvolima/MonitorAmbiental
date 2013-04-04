@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Widget xmlns="http://www.contexttoolkit.org/ctk" name="contentTrashWidget">		
+	<Attributes>
+		<Attribute name="content" type="int" />
+                <Attribute name="near" type="string" />
+		<Attribute name="area" type="string" />
+		<Attribute name="enableNotificatons" type="boolean" />
+	</Attributes>	
+</Widget>

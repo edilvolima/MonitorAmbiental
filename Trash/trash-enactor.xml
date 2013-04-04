@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Enactor xmlns="http://www.contexttoolkit.org/ctk" name="trashEnactor">
+
+	<InWidget  href="trash-widget-input.xml" />
+	<OutWidget href="trash-widget-output.xml" />
+	
+	<OutcomeName>status</OutcomeName>
+	
+	<Reference name="empty">
+		<Query name="dumpEmpty">
+			(AND
+				(EQUAL content 0)
+				(EQUAL enableNotificatons true)
+				
+			)
+		</Query>
+		<Outcome outAttribute="status">"VAZIA-"+area</Outcome>
+		<ServiceInput service="TrashService" function="trashControl">
+			<Attribute name="status" />
+		</ServiceInput>
+	</Reference>
+	
+	<Reference name="filling">
+		<Query name="dumpFilling">
+			(AND
+				(GREATER content 0)
+				(LESS content 250)
+				(EQUAL enableNotificatons true)
+			)
+		</Query>
+		<Outcome outAttribute="status">"ENCHENDO-"+area</Outcome>
+		<ServiceInput service="TrashService" function="trashControl">
+			<Attribute name="status" />
+		</ServiceInput>
+	</Reference>
+	
+	<Reference name="limit">
+		<Query name="dumpLimit">
+			(AND
+				(GREATER content 225)
+				(LESS content 250)
+				(EQUAL enableNotificatons true)
+			)
+		</Query>
+		<Outcome outAttribute="status">"LIMITE-"+area</Outcome>
+		<ServiceInput service="TrashService" function="trashGathering">
+			<Attribute name="status" />
+		</ServiceInput>
+	</Reference>
+        
+       	<Reference name="floodGathering">
+		<Query name="dumpFloodgathering">
+			(AND
+				(EQUAL content 250)
+				(EQUAL enableNotificatons true)
+			)
+		</Query>
+		<Outcome outAttribute="status">"CHEIA-"+area+"-"+near</Outcome>
+		<ServiceInput service="TrashService" function="trashGathering">
+			<Attribute name="status" />
+		</ServiceInput>
+	</Reference>
+        
+        	<Reference name="flood">
+		<Query name="dumpFlood">
+			(AND
+				(EQUAL content 250)
+				(EQUAL enableNotificatons true)
+			)
+		</Query>
+		<Outcome outAttribute="status">"CHEIA-"+area</Outcome>
+		<ServiceInput service="TrashService" function="trashControl">
+			<Attribute name="status" />
+		</ServiceInput>
+	</Reference>
+	
+</Enactor>

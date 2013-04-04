@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Enactor xmlns="http://www.contexttoolkit.org/ctk" name="pollutionEnactor">
+
+	<InWidget  href="pollution-widget-input.xml" />
+	<OutWidget href="pollution-widget-output.xml" />
+	
+	<OutcomeName>classification</OutcomeName>
+	<OutcomeName>area</OutcomeName>
+	
+	
+	<Reference name="PollutionBoa">
+		<Query name="PollutionBoa">
+			( AND
+				(GREATER_EQUAL indexPollution 0)
+				(LESS indexPollution 50)
+				(EQUAL enableNotificatons true)
+				
+			)
+		</Query>
+		<Outcome outAttribute="classification">"BOA-"+area</Outcome>
+		<ServiceInput service="pollutionService" function="pollutionControl">
+			<Attribute name="classification" />
+		</ServiceInput>
+	</Reference>
+	
+	<Reference name="pollutionRegular">
+		<Query name="pollutionRegular">
+			(AND
+				(GREATER indexPollution 50)
+				(LESS indexPollution 101)
+				(EQUAL enableNotificatons true)
+			)
+		</Query>
+		<Outcome outAttribute="classification">"REGULAR-"+area</Outcome>
+		<ServiceInput service="pollutionService" function="pollutionControl">
+			<Attribute name="classification" />
+		</ServiceInput>
+	</Reference>
+	
+	<Reference name="pollutionInadequada">
+		<Query name="pollutionInadequada">
+			(AND
+				(GREATER indexPollution 100)
+				(LESS indexPollution 201)
+				(EQUAL enableNotificatons true)
+			)
+		</Query>
+		<Outcome outAttribute="classification">"INADEQUADA-"+area</Outcome>
+		<ServiceInput service="pollutionService" function="pollutionControl">
+			<Attribute name="classification" />
+		</ServiceInput>
+	</Reference>
+	
+	<Reference name="pollutionMa">
+		<Query name="pollutionMa">
+			(AND
+				(GREATER indexPollution 200)
+				(LESS indexPollution 301)
+				(EQUAL enableNotificatons true)
+			)
+		</Query>
+		<Outcome outAttribute="classification">"MÁ-"+area</Outcome>
+		<ServiceInput service="pollutionService" function="pollutionControl">
+			<Attribute name="classification" />
+		</ServiceInput>
+	</Reference>
+	
+	<Reference name="pollutionPessima">
+		<Query name="pollutionPessima">
+			( AND
+				(GREATER indexPollution 300)
+				(EQUAL enableNotificatons true)
+			)
+		</Query>
+		<Outcome outAttribute="classification">"PÉSSIMA-"+area</Outcome>
+		<ServiceInput service="pollutionService" function="pollutionControl">
+			<Attribute name="classification" />
+		</ServiceInput>
+	</Reference> 
+	
+	
+
+</Enactor>
