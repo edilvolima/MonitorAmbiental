@@ -15,7 +15,7 @@
 			)
 		</Query>
 		<Outcome outAttribute="status">"VAZIA-"+area</Outcome>
-		<ServiceInput service="TrashService" function="trashControl">
+		<ServiceInput service="trashService" function="trashControl">
 			<Attribute name="status" />
 		</ServiceInput>
 	</Reference>
@@ -29,7 +29,7 @@
 			)
 		</Query>
 		<Outcome outAttribute="status">"ENCHENDO-"+area</Outcome>
-		<ServiceInput service="TrashService" function="trashControl">
+		<ServiceInput service="trashService" function="trashControl">
 			<Attribute name="status" />
 		</ServiceInput>
 	</Reference>
@@ -43,7 +43,7 @@
 			)
 		</Query>
 		<Outcome outAttribute="status">"LIMITE-"+area</Outcome>
-		<ServiceInput service="TrashService" function="trashGathering">
+		<ServiceInput service="trashService" function="trashGathering">
 			<Attribute name="status" />
 		</ServiceInput>
 	</Reference>
@@ -51,12 +51,12 @@
        	<Reference name="floodGathering">
 		<Query name="dumpFloodgathering">
 			(AND
-				(EQUAL content 250)
+				(EQUAL content 245)
 				(EQUAL enableNotificatons true)
 			)
 		</Query>
 		<Outcome outAttribute="status">"CHEIA-"+area+"-"+near</Outcome>
-		<ServiceInput service="TrashService" function="trashGathering">
+		<ServiceInput service="trashService" function="trashGathering">
 			<Attribute name="status" />
 		</ServiceInput>
 	</Reference>
@@ -69,7 +69,7 @@
 			)
 		</Query>
 		<Outcome outAttribute="status">"CHEIA-"+area</Outcome>
-		<ServiceInput service="TrashService" function="trashControl">
+		<ServiceInput service="trashService" function="trashControl">
 			<Attribute name="status" />
 		</ServiceInput>
 	</Reference>

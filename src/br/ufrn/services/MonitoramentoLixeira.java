@@ -20,7 +20,7 @@ public class MonitoramentoLixeira {
             protected Widget trash;
 
             protected Enactor enactor;
-
+            
             protected TrashService trashService;
 
 
@@ -30,7 +30,7 @@ public class MonitoramentoLixeira {
 
                     trash = WidgetXmlParser.createWidget("Trash/trash-widget-input.xml");
                     trash.updateData("enableNotificatons", false);
-
+                    trash.updateData("near", "agente1");
                     statusTrash = WidgetXmlParser.createWidget("Trash/trash-widget-output.xml");
                     trashService = new TrashService(trash);
                     statusTrash.addService(trashService);

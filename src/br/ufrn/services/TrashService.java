@@ -50,12 +50,12 @@ public class TrashService extends Service{
              public DataObject execute(ServiceInput serviceInput) {
 
                     String functionName = serviceInput.getFunctionName();
-
+                    String message = serviceInput.getInput().getAttributeValue("status");
+                    
+                    System.out.println(message);
+                   
                     if (functionName.equals(CONTROL)) {
-                        
-                        String message = serviceInput.getInput().getAttributeValue("status");
-                        System.out.println(message);
-                        
+                                                
                         String valores[] = message.split("-");
                         atualizacoesLixeira.setVisible(true);
                         atualizacoesLixeira.atualizar(Integer.parseInt(valores[2]), valores[0]);
@@ -63,19 +63,17 @@ public class TrashService extends Service{
                     }
                     else if (functionName.equals(GATHERING)) {
 
-                        String message = serviceInput.getInput().getAttributeValue("status");
-                        System.out.println(message);
-                        
                         String valores[] = message.split("-");
-
+                        atualizacoesLixeira.setVisible(true);
+                        
                         if (valores[0].equals("LIMITE")) {
-                            atualizacoesLixeira.setVisible(true);
+                           
                             atualizacoesLixeira.avisar(Integer.parseInt(valores[2]), valores[0]);
 
                         }
                         else if (valores[0].equals("CHEIA")){
-                            atualizacoesLixeira.setVisible(true);
-                            atualizacoesLixeira.chamar(valores[0], valores[3]);
+                        	
+                            atualizacoesLixeira.chamar(valores[0], valores[2]);
 
                         }
 
