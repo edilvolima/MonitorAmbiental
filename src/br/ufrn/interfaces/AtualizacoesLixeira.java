@@ -12,9 +12,9 @@ public interface AtualizacoesLixeira {
     
     public void atualizar(int area, String status);
     
-    public void avisar(int area, String status);
+    public void avisar(String area, String status);
     
-    public void chamar(String situacao, String agente);
+    public void chamar(String area, String agente);
     
     public void setVisible(boolean v);
     

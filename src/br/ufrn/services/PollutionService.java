@@ -14,7 +14,8 @@ import context.arch.widget.Widget;
 public class PollutionService extends Service{
 	
     private AtualizacoesPoluicao atualizacoesPoluicao = SecretariaMeioAmbiente.getInstance();
-
+        
+        
 	public PollutionService(final Widget widget) {
 		super(widget, "pollutionService", 
 				new FunctionDescriptions() {

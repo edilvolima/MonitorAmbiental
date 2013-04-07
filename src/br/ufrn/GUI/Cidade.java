@@ -33,7 +33,6 @@ public class Cidade extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSlider1 = new javax.swing.JSlider();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jStemperaturaArea1 = new javax.swing.JSlider();
@@ -91,7 +90,7 @@ public class Cidade extends javax.swing.JFrame {
         jTlixo1.setMaximum(250);
         jTlixo1.setValue(0);
         jTlixo1.setBorder(javax.swing.BorderFactory.createTitledBorder("Volume de lixo"));
-        jTlixo1.setPreferredSize(new java.awt.Dimension(200, 46));
+        jTlixo1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTlixo1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jTlixo1StateChanged(evt);
@@ -126,11 +125,9 @@ public class Cidade extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jStemperaturaArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTlixo1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTlixo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        jTlixo1.getAccessibleContext().setAccessibleName("Volume de lixo");
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Area 3"));
 
@@ -368,11 +365,11 @@ public class Cidade extends javax.swing.JFrame {
         atualizarInformacoes.atualizarInformacoesPoluicao(jSarea3.getValue(), "area-3");
     }//GEN-LAST:event_jSarea3StateChanged
 
-    private void jTlixo1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTlixo1StateChanged
+    private void jTlixo1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jT1StateChanged
         atualizarInformacoes.atualizarInformacoesLixeira(jTlixo1.getValue(), "area-1");
-    }//GEN-LAST:event_jTlixo1StateChanged
+    }//GEN-LAST:event_jT1StateChanged
 
-    private void jTlixo2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTlixo2StateChanged
+    private void jTlixo2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jT2StateChanged
        atualizarInformacoes.atualizarInformacoesLixeira(jTlixo2.getValue(), "area-2");
     }//GEN-LAST:event_jTlixo2StateChanged
 
@@ -425,7 +422,6 @@ public class Cidade extends javax.swing.JFrame {
     private javax.swing.JSlider jSArea1;
     private javax.swing.JSlider jSarea2;
     private javax.swing.JSlider jSarea3;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jStemperaturaArea1;
     private javax.swing.JSlider jStemperaturaArea2;
     private javax.swing.JSlider jStemperaturaArea3;

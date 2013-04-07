@@ -68,12 +68,12 @@ public class TrashService extends Service{
                         
                         if (valores[0].equals("LIMITE")) {
                            
-                            atualizacoesLixeira.avisar(Integer.parseInt(valores[2]), valores[0]);
+                            atualizacoesLixeira.avisar(valores[2], valores[0]);
 
                         }
                         else if (valores[0].equals("CHEIA")){
                         	
-                            atualizacoesLixeira.chamar(valores[0], valores[2]);
+                            atualizacoesLixeira.chamar(valores[2], valores[3]);
 
                         }
 

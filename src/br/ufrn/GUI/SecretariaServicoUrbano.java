@@ -499,8 +499,6 @@ public class SecretariaServicoUrbano extends javax.swing.JFrame implements Atual
                 .addGap(0, 42, Short.MAX_VALUE))
         );
 
-        jLabel13.getAccessibleContext().setAccessibleName("VAZIA");
-
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel11.setText("Area 2");
@@ -670,7 +668,9 @@ public class SecretariaServicoUrbano extends javax.swing.JFrame implements Atual
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
-
+    
+    public static String Texto = "";
+    
     @Override
     public void atualizar(int area, String situacao) {
         if (area == 1) {
@@ -692,14 +692,16 @@ public class SecretariaServicoUrbano extends javax.swing.JFrame implements Atual
     }
     
     @Override
-    public void chamar(String situacao, String agente) {
-            jTextArea1.setText("Chamando agente "+agente);     
+    public void chamar(String area, String agente) {
+            Texto = Texto+"\nChamando agente "+agente+" => lixeira da area: "+area;
+            jTextArea1.setText(Texto); //+"\nChamando agente "+agente+" => lixeira da area: "+area);     
     
     }
     
     @Override
-    public void avisar(int area, String status) {
-            jTextArea1.setText("A lixeira da area "+area+" está quase cheia.");
+    public void avisar(String area, String status) {
+            Texto = Texto+"\nA lixeira da area "+Integer.parseInt(area)+" esta quase "+status;
+            jTextArea1.setText(Texto); //+"A lixeira da area "+area+" esta quase "+status);
     }
 
 

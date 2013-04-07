@@ -37,8 +37,7 @@
 	<Reference name="limit">
 		<Query name="dumpLimit">
 			(AND
-				(GREATER content 225)
-				(LESS content 250)
+				(EQUAL content 225)
 				(EQUAL enableNotificatons true)
 			)
 		</Query>
@@ -51,7 +50,7 @@
        	<Reference name="floodGathering">
 		<Query name="dumpFloodgathering">
 			(AND
-				(EQUAL content 245)
+				(EQUAL content 249)
 				(EQUAL enableNotificatons true)
 			)
 		</Query>
